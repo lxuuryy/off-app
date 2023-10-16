@@ -11,7 +11,7 @@ import Advanced from './pages/Advanced'
 import Register from './pages/Register'
 import {UserContext } from './cartContext/UserContext'
 
-
+export const  URL = process.env.REACT_APP_SERVER_URL;
 
 export default function App() {
 

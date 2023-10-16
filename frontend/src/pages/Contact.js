@@ -31,7 +31,7 @@ export default function Contact (){
             message: form.message
         }
 
-        const response = await fetch('/api/message',{
+        const response = await fetch('https://backback-q0yl.onrender.com/api/message',{
             method: 'POST',
             body: JSON.stringify(message),
             headers: {

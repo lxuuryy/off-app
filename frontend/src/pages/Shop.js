@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 import { loadStripe } from "@stripe/stripe-js"; 
 const stripePromise = loadStripe('pk_live_51NzsKPGdxsICiosJqJCVLekhWdS2sYuEOV6gDhLwcNDIreYLr9VQuDSNv7FNIZQzhi1NNKU0snIF2b43ofnCOVeU00WQSl6DNk');
 
-
+export const  URL = process.env.REACT_APP_SERVER_URL;
 
 
 
@@ -20,7 +20,8 @@ export default function Shop(){
     React.useEffect(() => {
         
         const fetchData = async () => {
-            const response = await fetch('/api/cart',{
+            const  URL = process.env.REACT_APP_SERVER_URL;
+            const response = await fetch(`${URL}/api/cart`,{
                 headers: {
                     Authorization: `Bearer ${users}`
                 }
@@ -45,7 +46,7 @@ export default function Shop(){
          React.useEffect(() => {
         
             const fetchData = async () => {
-                const response = await fetch('/api/cart',{
+                const response = await fetch(`${URL}/api/cart`,{
                     headers: {
                         Authorization: `Bearer ${users}`
                     }
@@ -139,7 +140,7 @@ export default function Shop(){
             console.log(users)
             
 
-            const response = await fetch('/api/cart', {
+            const response = await fetch(`${URL}/api/cart`, {
                 method: 'POST',
                 body: JSON.stringify(item),
                 headers: {
@@ -196,7 +197,7 @@ export default function Shop(){
             }
             
 
-            const response = await fetch('/api/cart', {
+            const response = await fetch(`${URL}/api/cart`, {
                 method: 'POST',
                 body: JSON.stringify(item),
                 headers: {
@@ -257,7 +258,7 @@ export default function Shop(){
 
             
 
-            const response = await fetch('/api/cart', {
+            const response = await fetch(`${URL}/api/cart`, {
                 method: 'POST',
                 body: JSON.stringify(item),
                 headers: {
@@ -317,7 +318,7 @@ function calculateTotalPrice() {
 
             
             try {
-                const response = await fetch (`/api/cart/${id}`, {
+                const response = await fetch (`${URL}/api/cart/${id}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${users}`
@@ -329,7 +330,7 @@ function calculateTotalPrice() {
                         
                     setShow(true)
                     const fetchData = async () => {
-                        const response = await fetch('/api/cart',{
+                        const response = await fetch(`${URL}/api/cart`,{
                             headers:{
                                 Authorization: `Bearer ${users}`
                             }
@@ -366,7 +367,7 @@ function calculateTotalPrice() {
         const handleCheckout = async () => {
             try {
               // Create a checkout session on your server
-              const response = await fetch('/api/create-checkout-session', {
+              const response = await fetch(`${URL}/api/create-checkout-session`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

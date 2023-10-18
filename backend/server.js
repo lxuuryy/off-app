@@ -10,6 +10,8 @@ const messageRoute = require('./routes/messageRoutes')
 
 app.use(express.json())
 
+app.use(express.static('build'))
+
 app.use((req,res,next) => {
     console.log(req.path, req.method)
     next()
@@ -36,9 +38,9 @@ app.post("/api/create-checkout-session", async (req, res) => {
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        success_url: "http://localhost:3000/success",
-        cancel_url: "http://localhost:3000/cancel",
-        billing_address_collection: "required",
+        success_url: "https://fordeploy-production.up.railway.app/success",
+        cancel_url: "https://fordeploy-production.up.railway.app/cancel",
+        billing_address_collection: "required", 
       });
   
       res.json({ id: session.id }); 

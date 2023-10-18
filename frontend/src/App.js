@@ -32,6 +32,7 @@ export default function App() {
       <Route path="/aboutUs" element={<About/>} />
       <Route path="/shop" element={<Shop/>} />
       <Route path="/register" element={!users ? <Register />: <Navigate to="/"/>} />
+      <Route path="/" element={<Home />} />
 
       
     </Routes>

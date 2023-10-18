@@ -3,11 +3,11 @@ import { BsCartPlus } from "react-icons/bs";
 import { HiXMark } from "react-icons/hi2";
 import { CartContext } from '../cartContext/cartContext'
 import { UserContext } from '../cartContext/UserContext'
-import {Link} from 'react-router-dom'
+import {Link, Navigate} from 'react-router-dom'
 import { loadStripe } from "@stripe/stripe-js"; 
 const stripePromise = loadStripe('pk_live_51NzsKPGdxsICiosJqJCVLekhWdS2sYuEOV6gDhLwcNDIreYLr9VQuDSNv7FNIZQzhi1NNKU0snIF2b43ofnCOVeU00WQSl6DNk');
 
-export const  URL = process.env.REACT_APP_SERVER_URL;
+
 
 
 
@@ -20,8 +20,7 @@ export default function Shop(){
     React.useEffect(() => {
         
         const fetchData = async () => {
-            const  URL = process.env.REACT_APP_SERVER_URL;
-            const response = await fetch('https://backback-q0yl.onrender.com/api/cart',{
+            const response = await fetch('/api/cart',{
                 headers: {
                     Authorization: `Bearer ${users}`
                 }
@@ -46,7 +45,7 @@ export default function Shop(){
          React.useEffect(() => {
         
             const fetchData = async () => {
-                const response = await fetch('https://backback-q0yl.onrender.com/api/cart',{
+                const response = await fetch('/api/cart',{
                     headers: {
                         Authorization: `Bearer ${users}`
                     }
@@ -140,7 +139,7 @@ export default function Shop(){
             console.log(users)
             
 
-            const response = await fetch('https://backback-q0yl.onrender.com/api/cart', {
+            const response = await fetch('/api/cart', {
                 method: 'POST',
                 body: JSON.stringify(item),
                 headers: {
@@ -197,7 +196,7 @@ export default function Shop(){
             }
             
 
-            const response = await fetch('https://backback-q0yl.onrender.com/api/cart', {
+            const response = await fetch('/api/cart', {
                 method: 'POST',
                 body: JSON.stringify(item),
                 headers: {
@@ -258,7 +257,7 @@ export default function Shop(){
 
             
 
-            const response = await fetch('https://backback-q0yl.onrender.com/api/cart', {
+            const response = await fetch('/api/cart', {
                 method: 'POST',
                 body: JSON.stringify(item),
                 headers: {
@@ -318,7 +317,7 @@ function calculateTotalPrice() {
 
             
             try {
-                const response = await fetch (`https://backback-q0yl.onrender.com/api/cart/${id}`, {
+                const response = await fetch (`/api/cart/${id}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${users}`
@@ -330,7 +329,7 @@ function calculateTotalPrice() {
                         
                     setShow(true)
                     const fetchData = async () => {
-                        const response = await fetch(`${URL}/api/cart`,{
+                        const response = await fetch('/api/cart',{
                             headers:{
                                 Authorization: `Bearer ${users}`
                             }
@@ -367,7 +366,7 @@ function calculateTotalPrice() {
         const handleCheckout = async () => {
             try {
               // Create a checkout session on your server
-              const response = await fetch(`https://backback-q0yl.onrender.com/api/create-checkout-session`, {
+              const response = await fetch('/api/create-checkout-session', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
@@ -429,9 +428,9 @@ function calculateTotalPrice() {
                     
                     <div className="item1--details">
                     <p className="item1--header"> ESSENTIAL  FOR  YOUR  TRAINING</p>
-                    <h4>FIT WEIGHT VESTS</h4>
-                    <p>Highly flexible, durable to use, Each vest is 35lb with removable weights to <br></br>
-                    to your training levels and goals. Get it here.</p>
+                    <h4 className='item--name'>FIT WEIGHT VESTS</h4>
+                    <p className="vest--disc">Highly flexible, durable to use, Each vest is 35lb <br className='break1'></br> with removable weights <br className='break2'></br>
+                    Improve your training levels <br className='break3'></br>. <br></br>Get it here.</p>
                     {error && <p>{error.message}</p>}
 
                     <div className="vest--cart">
@@ -441,10 +440,16 @@ function calculateTotalPrice() {
                         <div onClick={() => handleSizeS('S')}className={ sizeS ? "buttons--size" : "buttons"}>S</div>
                         <div onClick={() => handleSizeM('M')}className ={ sizeM ? "buttons--size" : "buttons"}>M</div>
                         <div onClick={() => handleSizeL('L')}className ={ sizeL ? "buttons--size" : "buttons"}>L</div>
+                        </div>
+                        <div className="new--buttons">
+                        <div onClick={() => handleSizeS('S')}className={ sizeS ? "red--button" : "default--buttons"}>S</div>
+                        <div onClick={() => handleSizeM('M')}className ={ sizeM ? "red--button" : "default--buttons"}>M</div>
+                        <div onClick={() => handleSizeL('L')}className ={ sizeL ? "red--button" : "default--buttons"}>L</div>
+                        
                         
                         </div>
                         <div className="add--container">
-                        <div className="button--cart" onClick={() => handleClick ('price_1NzsRAGdxsICiosJWrNpt8xZ', 'Vest', 59.99, size, 'https://kingsbox.com/blog/wp-content/uploads/2020/10/Giubotto-zavorratto-tactical-vest-kingsbox.jpg')}>ADD TO CART</div>
+                        <div className="button--cart s" onClick={() => handleClick ('price_1NzsRAGdxsICiosJWrNpt8xZ', 'Vest', 59.99, size, 'https://kingsbox.com/blog/wp-content/uploads/2020/10/Giubotto-zavorratto-tactical-vest-kingsbox.jpg')}>ADD TO CART</div>
 
                         </div>
                     </div>
@@ -537,7 +542,7 @@ function calculateTotalPrice() {
 <div className="bottom-menu">
     <h3 className="total--header">SUBTOTAL</h3>
     <h3 className="total--header2"> ${calculateTotalPrice()}</h3>
-    <button onClick={handleCheckout}className='checkout--button'>GO TO CHECKOUT</button>
+     <button onClick={cart.length === null ? <Navigate to="/shop"></Navigate> :{handleCheckout}}className='checkout--button'>GO TO CHECKOUT</button>
 
     
     </div>

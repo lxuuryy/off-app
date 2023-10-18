@@ -1206,6 +1206,10 @@ opacity: 0.8;
 
 }
 
+.mobile-nav{
+  display: none;
+}
+
 @keyframes showMenu {
   from {opacity: 0%;}
   to {opacity: 100%;}
@@ -1216,7 +1220,7 @@ opacity: 0.8;
   to {opacity: 0;}
 }
 
-@media (min-width: 0px) and (max-width: 960px ){
+@media (min-width: 0px) and (max-width: 896px ){
 
   .title--container h1{
 
@@ -1237,8 +1241,426 @@ opacity: 0.8;
   .info--container{
     flex-direction: column;
   }
+
+  .navbar--links {
+    display:none;
+    
+  }
+
+  .mobile-nav{
+    display: flex;
+    position: relative;
+  }
+
+  .mobile--links{
+    position: fixed;
+    background-color: black;
+    color: white;
+    
+    top: 90px;
+    bottom: 0px;
+    left: 0%;
+    right: 0%;
+    overflow-y: hidden;
+    
+  }
+
+  .pic--group{
+    flex-direction: column;
+  }
+
+
+    .training--page{
+      max-width: 959px;
+      overflow-x: hidden
+    }
+  
+  .workout--title{
+      font-size: 10px
+  }
+
+    .workout--pic1 img{
+      width: 250px;
+      
+    }
+
+    .pic1--details{
+      top: 130px;
+      left: 10%
+    }
+
+    .pic1--details span{
+      font-size: 15px;
+    }
+
+    .navbar--container{
+      width: 100%
+
+    }
+
+    .header--tag{
+      max-width: 896px;
+      overflow: hidden;
+    }
+
+    .exercise-names{
+      font-size: 15px;
+      padding: 2px;
+      color: red
+    }
+
+    .p-tags{
+      padding-left: 40px;
+    }
+
+    .condition--class{
+      padding-right:50px
+    }
+
+    .myHeader--tag{
+    padding: 20px;
+    }
+
+    .mobile--links a{
+      color: white;
+      text-decoration: none;
+      padding: 15px;
+    }
+
+    .mobile--links{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .home--container{
+      overflow: hidden;
+    }
+
+    .title--container h3{
+      font-size: 15px;
+      
+    }
+    .title--container{
+      padding-top: 60px;
+    }
+
+    .video--container video{
+      margin-top: 90px;
+     width: 100%;
+     background-color: black;
+
+    }
+
+    .p--tag p{
+      font-size:30px;
+      color: white;
+    }
+
+    .first--section p{
+      font-size: 20px;
+    }
+
+    .h2--tag{
+      font-size: 15px;
+      text-align: center;
+      padding-right:40px;
+    }
+
+    .goals--button{
+      font-size: 10px;
+      padding: 10px 30px;
+      margin-right: 70px;
+    
+    }
+
+    .program--button{
+      font-size: 10px;
+      padding: 10px 30px;
+      margin-left: 25px;
+    }
+
+    .p--tag{
+      text-align: center;
+      padding-left: 65px;
+
+}
+
+.p--tag.p{
+  position: relative;
+  left: 35px;
+  width: 140px
+}
+
+.h2--tag.s{
+  padding-left: 30px;
+}
+
+.second--image{
+  position: relative;
+  right: 90px
+}
+
+.program--button.s{
+  position: relative;
+  left: 105px;
+}
+
+.items{overflow: hidden;}
+
+
+.first-image {
+  position: relative;
+  left: 50px;
+  
+  
+}
+
+.first--section img{
+  width:100px;
+  padding-right: 30px;
+  border-radius: 15px;
+}
+
+.home--images{
+  flex-direction: column;
+}
+
+.para--container img{
+  width: 250px;
+}
+
+.price--tag{
+  top: 133px;
+  left: 35px;
+}
+
+.equip--con{
+  top: 20px
+}
+
+.first--section{
+  margin: -10px;
+}
+
+
+.items{
+  flex-direction: column;
+}
+
+.item--1{
+  flex-direction: column;
+}
+
+.item--2{
+  flex-direction: column;
+}
+
+
+.item--3{
+  flex-direction: column;
+}
+
+.item1--header{
+  padding-left: 110px;
+  font-size: 9px
+}
+
+.item--name {
+  padding-left: 110px;
+  font-size: 300px;
+}
+
+.vest--disc{
+  padding-left: 96px;
+  text-align:left;
+  font-size: 10px;
+  line-height: 1;
+  margin-left: 15px;
+  
+}
+.break2{
+  display: none
+}
+
+.break3{
+  display: flex;
+}
+
+.break1{
+  display: flex;
+}
+
+.vest--image--container{
+  margin-top: 100px;
+}
+
+.price1--item{
+  right: 20px
+}
+
+.image3--container img{
+padding-right: 180px;
+position: relative;
+left: -70px;;
+}
+
+.limited--tag{
+  left: 20px
+}
+
+.shop--video{
+  margin-top: 65px;
+}
+
+.cart--header{
+ left: 0%;
+ right: 0%;
+}
+
+
+.size--buttons{
+  flex-direction: column;
+}
+
+.button--cart.s{
+  margin-right: 30px
+}
+
+.new--buttons{
+  display: flex;
+  position: relative;
+  margin-right: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.vest--cart span{
+  padding-right: 20px;
+}
+
+.default--buttons{
+  padding: 5px 30px;
+  
+  margin: 20px;
+}
+
+.red--button{
+
+  padding: 5px 30px;
+  
+  margin: 20px;
+  background-color: #e0c8c9;
+  border: 1px solid #cf2424
+
+}
+
+.vest--image--container img{
+  width: 100%;
+}
+
+.item2--image img{
+  width: 100%
+}
+
+.image3--container img{
+  width: 300px;
+  margin-left: 75px
   
 
+}
+.limited--tag{
+  top: 10px;
+  bottom: 225px;
+  left:37%;
+  right: 50%
+}
+
+.line--list{
+  width: 100%;
+}
+
+.item3--details h1{
+  font-size: 30px;
+}
+
+.fit--desc br{
+ display: none;
+ 
+}
+
+.navbar--container{
+  position: fixed;
+  top: 0px;
+}
+
+.main--shop{
+  max-width: 959px;;
+}
+
+
+
+}
+
+.vest--cart span{
+  position: relative;
+  right: 2px;
+}
+
+.buttons--size{
+  width: 40px;
+  position: relative;
+  left: 200px;
+  padding-left: 6px;
+  padding-right: 5px;
+  margin-right: 40px;
+  margin: 30px;
+}
+
+
+.buttons{
+  width: 40px;
+  position: relative;
+  left: 200px;
+  padding-left: 60px; 
+  
+  margin-top: 20px;;
+}
+
+
+.new--buttons{
+  display: flex;
+  position: relative;
+  right:0px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.default--buttons{
+  padding: 5px 30px;
+  
+  margin: 20px;
+  cursor: pointer;
+}
+
+.red--button{
+
+  padding: 5px 30px;
+  
+  margin: 20px;
+  background-color: #e0c8c9;
+  border: 1px solid #cf242c;
+  cursor: pointer
+
+}
+
+.size--buttons{
+  display: none;
 }
 
 
@@ -1251,6 +1673,25 @@ opacity: 0.8;
 }
 
 
+.p--tag{
+  color: white;
+}
+
+.p-fam{
+  display: flex;
+}
+
+.p--tag.p{
+  padding-right: 150px;
+}
+
+.break{
+  display: none;
+}
+
+.break3{
+  display: none;
+}
 
 
 

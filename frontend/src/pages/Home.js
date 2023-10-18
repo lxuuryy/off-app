@@ -30,28 +30,32 @@ export default function Home (){
             </div>
             <div className="hero section">
                 <div className="first--section">
-                    <img src="/images/weights2.jpg" alt="" />
+                    <img  className='first-image' src="/images/weights2.jpg" alt="" />
                     <div>
+                    <div className='p-fam'>
                     <p className="p--tag">Get the program</p>
+                    </div>
+
                     <h2 className="h2--tag">From Beginner to Pro,<br></br>trusted by 2 million people</h2>
                     <div className="button--class"> 
-                    <button className="program--button">Programs</button>
-                    <button className="goals--button">Unsure About Your Goals?</button>
+                    <Link to="/training"><button className="program--button">Programs</button></Link>
+                    <Link to="/contact"><button className="goals--button">Contact </button></Link>
                     </div>
                     </div>
 
                 </div>
+                
                 <div className="first--section">
                 
                 <div>
-                    <p className="p--tag">Visit Our Shop</p>
-                    <h2 className="h2--tag">Elite Products,<br></br>Elite Mentality</h2>
+                    <p className="p--tag p">Visit our shop</p>
+                    <h2 className="h2--tag s">Elite Products,<br></br>Elite Mentality</h2>
                     <div className="button--class"> 
-                    <button className="program--button">Shop</button>
+                    <button className="program--button s">Shop</button>
                     
                 </div> 
                     </div>
-                    <img src="/images/weights.jpg" alt="" />
+                    <img  className='second--image 'src="/images/weights.jpg" alt="" />
             </div>
             </div>
             
@@ -100,6 +104,8 @@ export default function Home (){
             
 
         </div>
+
+        
 
     )
 

@@ -17,13 +17,13 @@ const cartItem = new Schema({
     },
     url:{
         type: String
-    },
+    }, 
     user_id:{
         type: String
     }
     
    
-    
+     
     
 },{timestamps: true}) 
 

@@ -5,6 +5,8 @@ import { CartContext } from '../cartContext/cartContext'
 import { UserContext } from '../cartContext/UserContext'
 import {Link, Navigate} from 'react-router-dom'
 import { loadStripe } from "@stripe/stripe-js"; 
+import { MdOutlineShoppingCartCheckout } from "react-icons/md";
+
 const stripePromise = loadStripe('pk_live_51NzsKPGdxsICiosJqJCVLekhWdS2sYuEOV6gDhLwcNDIreYLr9VQuDSNv7FNIZQzhi1NNKU0snIF2b43ofnCOVeU00WQSl6DNk');
 
 
@@ -13,8 +15,30 @@ const stripePromise = loadStripe('pk_live_51NzsKPGdxsICiosJqJCVLekhWdS2sYuEOV6gD
 
 export default function Shop(){
 
+   
+
+    
+
+    
+    const [menu, setMenu] = React.useState(false)
     const { cart, setCart} = React.useContext(CartContext)
     const { users, name, picture} = React.useContext(UserContext)
+
+    const videoRef = React.useRef(null);
+    React.useEffect(() => {
+        // Get a reference to the video element
+        const videoElement = videoRef.current;
+    
+        if (videoElement) {
+          // Play the video when the component mounts
+          videoElement.play().catch((error) => {
+            // Handle any autoplay errors, such as on mobile devices
+            console.error('Autoplay error:', error);
+          });
+        }
+      }, []);
+
+     
 
 
     React.useEffect(() => {
@@ -307,13 +331,19 @@ export default function Shop(){
         
 }
 
+function hidden(){
+    setMenu( prevMenu => !prevMenu)
+}
+
 function calculateTotalPrice() {
     const totalPrice = cart.reduce((accumulator, item) => accumulator + item.price, 0);
     return totalPrice.toFixed(2); // Assuming you want to display the total with 2 decimal places
 }
 
 
-        async function handleDelete(id ){
+        async function handleDelete(id  ){
+
+            
 
             
             try {
@@ -323,10 +353,10 @@ function calculateTotalPrice() {
                         Authorization: `Bearer ${users}`
             }})
 
-                setShow(true)
+                
 
                 if(response){
-                        
+                    
                     setShow(true)
                     const fetchData = async () => {
                         const response = await fetch('/api/cart',{
@@ -336,6 +366,7 @@ function calculateTotalPrice() {
                         })
                         const json = await response.json()
                         setCart(json)
+                        
 
                     }
                 
@@ -399,6 +430,7 @@ function calculateTotalPrice() {
 
     function showMenu(){
         setShow( prevShow => !prevShow)
+       
     }
 
 
@@ -406,7 +438,7 @@ function calculateTotalPrice() {
         <div className="main--shop">
         <div className={ show ? "blur--back" : "shop--page"}>
             <div className="shop--video">
-                <video autoPlay muted loop>
+            <video  ref={videoRef} autoPlay muted loop playsInline>
                     <source src={require('../video/shop.mp4')} type="video/mp4"/>
 
                 </video>
@@ -449,7 +481,7 @@ function calculateTotalPrice() {
                         
                         </div>
                         <div className="add--container">
-                        <div className="button--cart s" onClick={() => handleClick ('price_1NzsRAGdxsICiosJWrNpt8xZ', 'Vest', 59.99, size, 'https://kingsbox.com/blog/wp-content/uploads/2020/10/Giubotto-zavorratto-tactical-vest-kingsbox.jpg')}>ADD TO CART</div>
+                        {!users ? <Link style={{textDecoration:"none"}} to="/register"><div className="button--cart s">ADD TO CART</div></Link> : <div className="button--cart s" onClick={() => handleClick ('price_1NzsRAGdxsICiosJWrNpt8xZ', 'Vest', 59.99, size, 'https://kingsbox.com/blog/wp-content/uploads/2020/10/Giubotto-zavorratto-tactical-vest-kingsbox.jpg')}>ADD TO CART</div>}
 
                         </div>
                     </div>
@@ -473,7 +505,7 @@ function calculateTotalPrice() {
                     <p>Introducing our premium Parallettes - the perfect fitness tool to elevate <br></br> your strength and flexibility training to new heights. Crafted with precision <br></br>and designed for versatility, our parallettes are the ideal addition to any home gym or fitness routine.</p>
                     
                         <div className="add--container">
-                        <div className="button--cart" onClick={() => handleClick ('price_1NzsSCGdxsICiosJANgpgr47', 'Paralletes', 79.99, !!size, 'https://kingsbox.com/blog/wp-content/uploads/2019/11/parallele-per-calistenico.jpg')}>ADD TO CART</div>
+                        {!users ? <Link style={{textDecoration:"none"}}to="/register"><div className="button--cart s">ADD TO CART</div></Link> : <div className="button--cart s" onClick={() => handleClick ('price_1NzsSCGdxsICiosJANgpgr47', 'Paralletes', 79.99, !!size, 'https://kingsbox.com/blog/wp-content/uploads/2019/11/parallele-per-calistenico.jpg')}>ADD TO CART</div>}
                         </div> 
                     </div>
                     
@@ -493,7 +525,7 @@ function calculateTotalPrice() {
                             <hr className='line--list'></hr>
                             <p className="price--red"><span>$149.99</span> $110.99</p>
                             <div>
-                            {users ? <div className="button--cart3" onClick={()=> handleClick('price_1NzsVJGdxsICiosJB2nDhWy9', 'Pull Up Bar', 110.99, !!size, 'https://cdn.kingsbox.com/assets/media/products/body-weight/pull-up-bars/for-indoor-use/X-075-2000--kingsbox-pull-up-bar--0.jpg')}>ADD TO CART</div> : <Link  className="cart--offline"to="/register"><div className="button--cart3" >ADD TO CART</div></Link> }
+                            {users ? <div className="button--cart3 s" onClick={()=> handleClick('price_1NzsVJGdxsICiosJB2nDhWy9', 'Pull Up Bar', 110.99, !!size, 'https://cdn.kingsbox.com/assets/media/products/body-weight/pull-up-bars/for-indoor-use/X-075-2000--kingsbox-pull-up-bar--0.jpg')}>ADD TO CART</div> : <Link  className="cart--offline"to="/register"><div className="button--cart3" >ADD TO CART</div></Link> }
                         </div> 
                         
                             
@@ -520,34 +552,39 @@ function calculateTotalPrice() {
         
       <div className="cart--header">
       <div className="cart--headermain">
-    <h1>CART</h1></div> 
+    <h1>CART</h1>
+
+    <div className='taggs'><span >You have {cart.length} {cart.length  > 1 || cart.length === 0 ? " items" : " item"}</span></div>
+    
+    <h3 className="header-3">SUBTOTAL ${calculateTotalPrice()} </h3>
+    </div> 
+    
 
           
           <div>
             {cart.map((item) => (
-              <div key={item.id} className="item--list">
-                <div className="image--div"> <img src={item.url} alt={`this is ${cart.length}`} /></div>
+                <div key={item.id} className="item--list">
+                 <div className="image--div"> <img src={item.url} alt={`this is ${cart.length}`} /></div>
                 <div className="product--name"><p>{item.product}<br></br>
                 {item.size && `Size: ${item.size}`}</p>
-                <button onClick={() => handleDelete(item._id)}>REMOVE ITEM</button></div>
+                <button className='remove--button' onClick={() =>  
+  handleDelete(item._id) }> REMOVE ITEM</button></div>
                 <div className="price--cart"><p>${item.price}</p></div>
-              </div>
+              </div> 
             ))}
           </div>
         </div>
+        
       
     
 </div>
-<div className="total-menu">
-<div className="bottom-menu">
-    <h3 className="total--header">SUBTOTAL</h3>
-    <h3 className="total--header2"> ${calculateTotalPrice()}</h3>
-     <button onClick={cart.length === null ? <Navigate to="/shop"></Navigate> :{handleCheckout}}className='checkout--button'>GO TO CHECKOUT</button>
+<div onClick={handleCheckout} className='checking'>CHECKOUT< MdOutlineShoppingCartCheckout style={{paddingLeft: "20px", }} /></div>
+
+    
 
     
     </div>
-</div>
-</div>
+
         )}
 
         </div>

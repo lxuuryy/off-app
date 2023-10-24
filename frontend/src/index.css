@@ -297,6 +297,11 @@ opacity: 0.8;
 
 }
 
+.add--container div:active{
+  background-color: #e0c8c9;
+  color:#cf2424
+}
+
 
 
 .shop--header{
@@ -333,6 +338,27 @@ opacity: 0.8;
   
   
   
+}
+
+.checking{
+  font-size: 20px !important;
+  padding-right: 10px !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  max-width: fit-content;
+  position: relative;
+  left: 170px;
+  padding: 5px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.checking:active{
+  color: black;
+  background-color: white;
+  border: 1px solid black;
 }
 
 .item--1 h4{
@@ -1210,6 +1236,36 @@ opacity: 0.8;
   display: none;
 }
 
+
+.program--button:active{
+  color:#0C57FB;
+  background-color: white;;
+  border:1px solid white;
+}
+
+.goals--button:active{
+  color:black;
+  background-color: white;
+  border: 1px solid black;
+}
+.add--container div:active{
+  border: 1px solid black;
+  color:#cf2424;
+  background-color: black;
+
+}
+
+.button--cart3.s:active{
+  border: 1px solid black;
+  color:#cf2424;
+  background-color: black;
+
+}
+
+.para--container:active{
+ opacity: 0.4;
+}
+
 @keyframes showMenu {
   from {opacity: 0%;}
   to {opacity: 100%;}
@@ -1601,7 +1657,236 @@ left: -70px;;
   max-width: 959px;;
 }
 
+.main--shop{
+  max-width: 960px;
+}
 
+;
+
+
+.item--1{
+  
+  
+  overflow-x: hidden;
+  margin-right: 0%
+}
+
+.item--2{
+  
+  overflow: hidden;
+}
+
+.item--3{
+  
+  overflow: hidden;
+}
+
+.cart--list{
+ 
+  overflow: hidden;
+}
+
+.navbar--container{
+  width: 100%
+}
+
+
+
+.price2--item{
+  top: 40px;
+  bottom: 600px;
+  font-size: 12px;
+}
+
+.price1--item{
+  top: -20px;
+  bottom: 175px;
+  font-size: 12px;
+}
+
+.view--cart{
+  margin-top: 20px;
+}
+
+.item--list{
+  width: 100%;
+  
+  overflow-y: scroll;
+  height: 200px
+  
+}
+
+.image--div img{
+  width: 80px;
+  border-radius: 60px;
+}
+.taggs{
+  color: white;
+  font-size: 15px;
+  position: relative;
+  padding-top: 30px;
+}
+
+.cart--menu{
+  left: 0%;
+  right: 0%;
+}
+
+.checking{
+  text-align: center;
+  padding: 10px 18px;
+  border: 1px solid white;
+  width: 70px;
+  margin-left: 70px;
+}
+
+.cart--headermain{
+  position: relative;
+  overflow-x: hidden;
+  display: flex;;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.header-3{
+  font-size: 20px;;
+}
+
+.button--cart.s {
+  padding: 15px 20px;
+}
+
+.remove--button{
+  background-color: black;
+  color: white;
+  border:1px solid white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
+.button--cart.s {
+  padding: 15px 20px;
+}
+
+.checkout--button{
+  top: 150px;
+  bottom: 80px;
+  background-color: black;
+  color: white;
+  left: 25%;
+  border: 1px solid white;;
+
+}
+
+.bottom-menu{
+  top: 0px;
+ bottom: 0px;
+  
+  
+  
+
+}
+
+.total-menu{
+  position: fixed;
+  bottom: 220px;
+  top: 750px;
+  margin-bottom: 120px;
+  
+  
+
+ 
+}
+
+.bottom-menu h3{
+ padding-right: 5px;
+}
+
+.checkout--button{
+  width: 100px;
+  height: 40px;
+}
+
+.name--email--div{
+  flex-direction: column;
+  margin: 40px;
+  
+}
+
+
+
+.title--con input{
+  width: 320px;
+  margin-top: 20px;
+}
+
+.message--container textarea{
+  width: 340px;
+  
+}
+
+.price2--item{
+  padding-bottom:40px;
+}
+
+.line--con{
+  width: 220px;
+}
+
+.message--container{
+  position: relative;
+  right: 400px;
+  
+}
+
+.contact--header h1{
+  margin-top: 70px;
+  font-size: 40px;
+}
+
+.contact--info{
+  font-size: 12px;
+}
+
+.button--send button{
+  padding: 5px 15px;
+}
+
+
+.image--div2{
+  margin-top: 60px;
+}
+
+.image--div1 img{
+  width: 200px;
+  border-radius:65px;
+}
+
+.image--div2 img{
+  width: 200px;
+  border-radius:65px;
+}
+
+.info--button{
+  padding: 5px 10px;
+  font-size: 10px;
+}
+
+.price2--item{
+
+  bottom: 640px
+}
+.message--container{
+  margin-right: 20px;
+  
+}
+
+.checking {
+  font-size: 10px !important;
+}
 
 }
 
@@ -1665,6 +1950,8 @@ left: -70px;;
 
 
 
+
+
 @media (max-width: 960px ){
  
   
@@ -1692,6 +1979,19 @@ left: -70px;;
 .break3{
   display: none;
 }
+
+.cart--headermain{
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.checking{
+  margin-left: 20px;
+  font-size: 10px;
+}
+
+
 
 
 

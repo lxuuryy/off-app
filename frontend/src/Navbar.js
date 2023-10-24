@@ -22,6 +22,8 @@ export default function Navbar (){
             localStorage.removeItem('name')
             setUser('')
             setName('')
+            localStorage.removeItem('Cart')
+            setCart('')
     }
             
     const [nav, setNav] = React.useState(true)
@@ -29,6 +31,8 @@ export default function Navbar (){
             setNav(prevNav => !prevNav)
 
     }
+
+   
 
 
 

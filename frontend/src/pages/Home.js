@@ -7,12 +7,26 @@ import {Link} from 'react-router-dom'
 
 export default function Home (){
 
+    const videoRef = React.useRef(null);
+
+    React.useEffect(() => {
+      // Start playing the video when the component mounts
+      if (videoRef.current) {
+        videoRef.current.play().catch(error => {
+          // Handle any potential error (e.g., autoplay not allowed)
+          console.error('Error playing video:', error);
+        });
+      }
+    }, []);
+
+
+
     return (
 
         <div className="home--container">
             
             <div className="video--container">
-            <video loop autoPlay muted>
+            <video ref={videoRef} loop autoPlay muted playsInline >
                 <source src= {require('../video/motivation.mp4')} type= 'video/mp4'/>
                 
             </video>

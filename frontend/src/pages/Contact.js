@@ -67,7 +67,7 @@ export default function Contact (){
             <div className="godfather--header">
             <div className="contact--children--header">
                 <div className="p--tags"> 
-            <p className="">Contact our team with any questions or comments at support@www.com</p>
+            <p className="contact--info">Contact our team with any questions at support@www.com</p>
             </div>
             
             </div>
@@ -116,7 +116,7 @@ export default function Contact (){
             <div className='error-container'>
             <label className='error-button'>{error}</label>
             </div>
-            <hr></hr>
+            <hr className='line--con'></hr>
 
             <div className="info--container">
                 <div className="image--div1">

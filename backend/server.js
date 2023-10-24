@@ -38,8 +38,8 @@ app.post("/api/create-checkout-session", async (req, res) => {
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        success_url: "https://fordeploy-production.up.railway.app/success",
-        cancel_url: "https://fordeploy-production.up.railway.app/cancel",
+        success_url: "https://fordeploy-production.up.railway.app/shop",
+        cancel_url: "https://fordeploy-production.up.railway.app/shop",
         billing_address_collection: "required", 
       });
   

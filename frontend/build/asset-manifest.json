@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6040e03c.css",
+    "main.js": "/static/js/main.2be4b5d7.js",
+    "static/media/motivation.mp4": "/static/media/motivation.196dfdc3138de6e9e16a.mp4",
+    "static/media/shop.mp4": "/static/media/shop.522d59cf7ae1c34f7fe6.mp4",
+    "index.html": "/index.html",
+    "main.6040e03c.css.map": "/static/css/main.6040e03c.css.map",
+    "main.2be4b5d7.js.map": "/static/js/main.2be4b5d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6040e03c.css",
+    "static/js/main.2be4b5d7.js"
+  ]
+}
